@@ -3,7 +3,7 @@
 
 const GHL_API_KEY = process.env.GHL_API_KEY!;
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID!;
-const GHL_BASE_URL = "https://rest.gohighlevel.com/v1";
+const GHL_BASE_URL = "https://services.leadconnectorhq.com";
 
 interface GHLContactPayload {
   firstName: string;
@@ -31,7 +31,7 @@ async function ghlFetch(path: string, options: RequestInit) {
     headers: {
       Authorization: `Bearer ${GHL_API_KEY}`,
       "Content-Type": "application/json",
-      Version: "2021-04-15",
+      Version: "2021-07-28",
       ...options.headers,
     },
   });
@@ -65,9 +65,15 @@ export async function createOpportunity(payload: GHLOpportunityPayload) {
 }
 
 export async function addTagsToContact(contactId: string, tags: string[]) {
-  return ghlFetch(`/contacts/${contactId}/tags`, {
+  return ghlFetch(`/contacts/${contactId}/tags/`, {
     method: "POST",
     body: JSON.stringify({ tags }),
+  });
+}
+
+export async function getPipelines() {
+  return ghlFetch(`/opportunities/pipelines?locationId=${GHL_LOCATION_ID}`, {
+    method: "GET",
   });
 }
 
