@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "blog": "tsx scripts/blog-agent.ts"
+    "blog": "tsx scripts/blog-agent.ts",
+    "prospect": "tsx scripts/prospecting-agent.ts"
   },
   "dependencies": {
     "next": "14.2.5",
