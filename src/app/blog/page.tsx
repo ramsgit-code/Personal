@@ -95,32 +95,43 @@ export default async function BlogPage() {
         </p>
 
         <div className="flex flex-col divide-y divide-border">
-          {posts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="group py-8 flex flex-col gap-2 hover:opacity-80 transition-opacity"
-            >
-              <div className="flex items-center gap-3 mb-1">
-                <span className="text-xs text-muted">
-                  {new Date(post.date).toLocaleDateString("es-ES", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-                {post.tags.slice(0, 2).map((t) => (
-                  <span key={t} className="text-xs font-mono text-accent/70 border border-accent/20 rounded px-1.5 py-0.5">
-                    {t}
+          {posts.map((post) => {
+            const isGenerated = generated.length > 0;
+            const card = (
+              <div className="group py-8 flex flex-col gap-2">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-xs text-muted">
+                    {new Date(post.date).toLocaleDateString("es-ES", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                   </span>
-                ))}
+                  {post.tags.slice(0, 2).map((t) => (
+                    <span key={t} className="text-xs font-mono text-accent/70 border border-accent/20 rounded px-1.5 py-0.5">
+                      {t}
+                    </span>
+                  ))}
+                  {!isGenerated && (
+                    <span className="text-xs font-mono text-muted border border-border rounded px-1.5 py-0.5">
+                      proximamente
+                    </span>
+                  )}
+                </div>
+                <h2 className={`text-xl font-semibold text-foreground leading-snug ${isGenerated ? "group-hover:text-accent transition-colors" : "opacity-60"}`}>
+                  {post.title}
+                </h2>
+                <p className="text-sm text-foreground-muted leading-relaxed">{post.description}</p>
               </div>
-              <h2 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
-                {post.title}
-              </h2>
-              <p className="text-sm text-foreground-muted leading-relaxed">{post.description}</p>
-            </Link>
-          ))}
+            );
+            return isGenerated ? (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="hover:opacity-80 transition-opacity">
+                {card}
+              </Link>
+            ) : (
+              <div key={post.slug}>{card}</div>
+            );
+          })}
         </div>
 
         {posts.length === 0 && (

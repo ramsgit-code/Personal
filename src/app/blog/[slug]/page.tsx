@@ -1,3 +1,4 @@
+import React from "react";
 import { promises as fs } from "fs";
 import path from "path";
 import Link from "next/link";
@@ -21,6 +22,23 @@ async function getPost(slug: string) {
   } catch {
     return null;
   }
+}
+
+function renderInline(text: string): React.ReactNode[] {
+  const parts: React.ReactNode[] = [];
+  const pattern = /(\*\*(.+?)\*\*|`(.+?)`|\[(.+?)\]\((.+?)\))/g;
+  let last = 0;
+  let match;
+  let key = 0;
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) parts.push(text.slice(last, match.index));
+    if (match[2]) parts.push(<strong key={key++} className="font-semibold text-foreground">{match[2]}</strong>);
+    else if (match[3]) parts.push(<code key={key++} className="text-xs bg-white/10 rounded px-1 py-0.5 font-mono">{match[3]}</code>);
+    else if (match[4] && match[5]) parts.push(<a key={key++} href={match[5]} className="text-accent underline underline-offset-2" target="_blank" rel="noopener noreferrer">{match[4]}</a>);
+    last = match.index + match[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
 }
 
 export async function generateMetadata({
@@ -64,15 +82,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </h1>
         </div>
 
-        {/* Render markdown as plain text for now — add MDX processor if needed */}
         <div className="prose prose-invert prose-sm max-w-none text-foreground-muted leading-relaxed">
           {post.body.split("\n").map((line, i) => {
-            if (line.startsWith("## ")) return <h2 key={i} className="text-xl font-bold text-foreground mt-10 mb-3">{line.slice(3)}</h2>;
-            if (line.startsWith("### ")) return <h3 key={i} className="text-lg font-semibold text-foreground mt-6 mb-2">{line.slice(4)}</h3>;
-            if (line.startsWith("- ")) return <li key={i} className="ml-4 mb-1">{line.slice(2)}</li>;
-            if (line.startsWith("**") && line.endsWith("**")) return <p key={i} className="font-semibold text-foreground my-2">{line.slice(2, -2)}</p>;
+            if (line.startsWith("## ")) return <h2 key={i} className="text-xl font-bold text-foreground mt-10 mb-3">{renderInline(line.slice(3))}</h2>;
+            if (line.startsWith("### ")) return <h3 key={i} className="text-lg font-semibold text-foreground mt-6 mb-2">{renderInline(line.slice(4))}</h3>;
+            if (line.startsWith("- ")) return <li key={i} className="ml-4 mb-1">{renderInline(line.slice(2))}</li>;
             if (line.trim() === "") return <br key={i} />;
-            return <p key={i} className="mb-3">{line}</p>;
+            return <p key={i} className="mb-3">{renderInline(line)}</p>;
           })}
         </div>
 

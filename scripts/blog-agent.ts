@@ -109,7 +109,7 @@ tags: [${post.tags.map((t) => `"${t}"`).join(", ")}]
 }
 
 async function main() {
-  const topicArg = process.argv.find((a) => a.startsWith("--topic="))?.split("=")[1];
+  const topicArg = process.argv.find((a) => a.startsWith("--topic="))?.slice("--topic=".length);
   const topic = topicArg || TOPIC_QUEUE[Math.floor(Math.random() * TOPIC_QUEUE.length)];
 
   if (!process.env.ANTHROPIC_API_KEY) {
