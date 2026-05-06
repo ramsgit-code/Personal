@@ -21,11 +21,11 @@ export function Footer() {
             Sistemas de captación, cualificación y cierre para negocios que quieren vender con orden.
           </p>
           <p className="text-xs text-muted mt-4">
-            España · <span itemProp="email">hola@ramiroperez.com</span>
+            España
           </p>
           <div className="flex items-center gap-4 mt-5">
             <a
-              href="https://www.linkedin.com/in/ramiroperez"
+              href="https://www.linkedin.com/in/ramiro-perez-rodero-48148115b"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-foreground-muted hover:text-foreground transition-colors flex items-center gap-1.5"
