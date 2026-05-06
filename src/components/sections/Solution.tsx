@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export function Solution() {
   return (
     <section>
       <div className="section">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -25,9 +25,9 @@ export function Solution() {
           <p className="text-lg text-foreground-muted leading-relaxed">
             Todo automatizado. Todo medible. Todo tuyo.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,7 +53,7 @@ export function Solution() {
               <p className="text-sm text-foreground-muted leading-relaxed">{item.desc}</p>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

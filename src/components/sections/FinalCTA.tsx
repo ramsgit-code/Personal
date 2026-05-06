@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export function FinalCTA() {
   return (
     <section>
       <div className="section">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -29,7 +29,7 @@ export function FinalCTA() {
           <p className="text-xs text-muted mt-4">
             Respondo en menos de 24h. Sin humo, sin pitch agresivo.
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

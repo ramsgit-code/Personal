@@ -2,9 +2,15 @@ import { DiagnosticForm } from "@/components/DiagnosticForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Diagnostico gratuito",
+  title: "Diagnóstico Gratuito de Automatización Comercial",
   description:
-    "Solicita tu diagnostico gratuito de 30 minutos. Analizo tu proceso comercial y te digo exactamente que sistema necesitas.",
+    "Sesión gratuita de 30 minutos. Analizo tu proceso comercial y te digo exactamente qué sistema necesitas para dejar de perder leads.",
+  alternates: { canonical: "https://ramiroperez.com/diagnostico" },
+  openGraph: {
+    title: "Diagnóstico Gratuito — Automatización Comercial",
+    description:
+      "30 minutos para saber exactamente qué sistema necesitas. Sin compromiso ni pitch agresivo.",
+  },
 };
 
 export default function DiagnosticoPage() {

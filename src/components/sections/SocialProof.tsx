@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const testimonials = [
   {
@@ -21,7 +21,7 @@ export function SocialProof() {
   return (
     <section>
       <div className="section">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -32,11 +32,11 @@ export function SocialProof() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Resultados que puedes medir.
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
-            <motion.div
+            <m.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export function SocialProof() {
                 <p className="text-sm font-medium text-foreground">{t.author}</p>
                 <p className="text-xs text-muted">{t.company}</p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

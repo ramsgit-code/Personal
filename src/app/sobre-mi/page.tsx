@@ -2,9 +2,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sobre mi",
+  title: "Sobre Ramiro Perez — Especialista en Automatización Comercial",
   description:
-    "Especialista en sistemas de captacion, cualificacion y automatizacion comercial. No soy una agencia. Soy el que construye el sistema.",
+    "Especialista en sistemas de captación, cualificación y automatización comercial con Go High Level. No soy una agencia: diseño e implemento el sistema completo.",
+  alternates: { canonical: "https://ramiroperez.com/sobre-mi" },
+  openGraph: {
+    title: "Sobre Ramiro Perez — Automatización Comercial con Go High Level",
+    description:
+      "Diseño el proceso completo: desde el formulario de captación hasta el cierre. Sistemas reales implementados en clínicas, eventos y formación.",
+  },
 };
 
 const specialties = [

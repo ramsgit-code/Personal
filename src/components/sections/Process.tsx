@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const steps = [
   {
@@ -34,7 +34,7 @@ export function Process() {
   return (
     <section className="bg-surface border-y border-border">
       <div className="section">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -45,7 +45,7 @@ export function Process() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Sin sorpresas. Sin promesas vagas.
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="relative">
           {/* Vertical line */}
@@ -53,7 +53,7 @@ export function Process() {
 
           <div className="flex flex-col gap-8">
             {steps.map((step, i) => (
-              <motion.div
+              <m.div
                 key={step.number}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -71,7 +71,7 @@ export function Process() {
                   </div>
                   <p className="text-sm text-foreground-muted leading-relaxed max-w-lg">{step.desc}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

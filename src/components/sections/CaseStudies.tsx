@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { LogoHospitalCapilar } from "@/components/logos/LogoHospitalCapilar";
 import { LogoEventosBarcelona } from "@/components/logos/LogoEventosBarcelona";
 import { LogoHermetic } from "@/components/logos/LogoHermetic";
@@ -33,7 +33,7 @@ export function CaseStudies() {
   return (
     <section>
       <div className="section">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -44,11 +44,11 @@ export function CaseStudies() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Sistemas que ya estan funcionando.
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {cases.map(({ Logo, tag, metric, metricLabel, result }, i) => (
-            <motion.div
+            <m.div
               key={tag}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ export function CaseStudies() {
               <span className="text-xs font-mono text-accent/80 border border-accent/20 rounded px-2 py-0.5 w-fit">
                 {tag}
               </span>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

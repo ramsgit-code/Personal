@@ -19,8 +19,8 @@ const config: Config = {
         "foreground-muted": "#a3a3a3",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
       animation: {
         "fade-up": "fadeUp 0.6s ease-out forwards",

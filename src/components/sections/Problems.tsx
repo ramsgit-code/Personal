@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const problems = [
   "Recibes leads pero no sabes cuales son realmente buenos hasta que pierdes tiempo hablando con ellos.",
@@ -15,7 +15,7 @@ export function Problems() {
   return (
     <section className="bg-surface border-y border-border">
       <div className="section">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -28,7 +28,7 @@ export function Problems() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {problems.map((p, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -40,10 +40,10 @@ export function Problems() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-foreground-muted text-sm leading-relaxed">{p}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

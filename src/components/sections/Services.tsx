@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Filter, FileText, MessageSquare } from "lucide-react";
 
 const services = [
@@ -10,21 +10,21 @@ const services = [
     tag: "Sistema A",
     title: "Lead Qualification System",
     desc: "Filtra automaticamente quien vale tu tiempo antes de que hables con ellos.",
-    href: "/servicios/lead-qualification-system",
+    href: "/servicios#lead-qualification-system",
   },
   {
     icon: FileText,
     tag: "Sistema B",
     title: "Proposal Automation System",
     desc: "Propuestas profesionales listas en minutos, no en dias.",
-    href: "/servicios/proposal-automation",
+    href: "/servicios#proposal-automation",
   },
   {
     icon: MessageSquare,
     tag: "Sistema C",
     title: "WhatsApp + CRM Automation",
     desc: "Seguimiento automatico que no suena a robot, integrado con Go High Level.",
-    href: "/servicios/whatsapp-crm-automation",
+    href: "/servicios#whatsapp-crm-automation",
   },
 ];
 
@@ -32,7 +32,7 @@ export function Services() {
   return (
     <section className="bg-surface border-y border-border">
       <div className="section">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -43,13 +43,13 @@ export function Services() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Tres sistemas. Un objetivo.
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((s, i) => {
             const Icon = s.icon;
             return (
-              <motion.div
+              <m.div
                 key={s.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export function Services() {
                 >
                   Ver mas <ArrowRight size={14} />
                 </Link>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

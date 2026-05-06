@@ -2,9 +2,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servicios",
+  title: "Servicios de Automatización Comercial",
   description:
-    "Lead Qualification System, Proposal Automation y WhatsApp + CRM Automation. Tres sistemas para convertir mas sin trabajar mas.",
+    "Lead Qualification System, Proposal Automation y WhatsApp + CRM Automation con Go High Level. Tres sistemas para convertir más leads sin procesos manuales.",
+  alternates: { canonical: "https://ramiroperez.com/servicios" },
+  openGraph: {
+    title: "Servicios — Automatización Comercial con Go High Level",
+    description:
+      "Tres sistemas para automatizar captación, propuestas y seguimiento de leads. Implementado en clínicas, empresas de eventos y academias.",
+  },
 };
 
 const services = [
@@ -12,76 +18,99 @@ const services = [
     slug: "lead-qualification-system",
     tag: "Sistema A",
     title: "Lead Qualification System",
-    tagline: "Filtra automaticamente quien vale tu tiempo.",
+    tagline: "Filtra automáticamente quién vale tu tiempo.",
     problem:
-      "Recibes leads pero no sabes cuales son buenos hasta que pierdes tiempo hablando con ellos. El equipo hace seguimiento manual y aun asi los leads se enfriansin convertir.",
+      "Recibes leads pero no sabes cuáles son buenos hasta que pierdes tiempo hablando con ellos. El equipo hace seguimiento manual y aun así los leads se enfrían sin convertir.",
     deliverables: [
-      "Formulario de precualificacion multi-paso",
-      "Sistema de scoring automatico (cold / warm / hot / premium)",
+      "Formulario de precualificación multi-paso",
+      "Sistema de scoring automático (cold / warm / hot / premium)",
       "Pipeline configurado en Go High Level",
-      "Tags automaticos segun respuestas del lead",
-      "Automatizacion de primer contacto (email + WhatsApp)",
+      "Tags automáticos según respuestas del lead",
+      "Automatización de primer contacto (email + WhatsApp)",
       "Dashboard de seguimiento y reporte",
     ],
     benefits: [
-      "Solo hablas con leads que cumplen tu criterio minimo",
-      "Ningun lead se queda sin respuesta en las primeras 24h",
-      "Sabes exactamente en que etapa esta cada oportunidad",
-      "El sistema trabaja sin supervision constante",
+      "Solo hablas con leads que cumplen tu criterio mínimo",
+      "Ningún lead se queda sin respuesta en las primeras 24h",
+      "Sabes exactamente en qué etapa está cada oportunidad",
+      "El sistema trabaja sin supervisión constante",
     ],
-    forWho: "Clinicas, academias, consultoras, agencias. Cualquier negocio con 10+ leads/mes.",
+    forWho: "Clínicas, academias, consultoras, agencias. Cualquier negocio con 10+ leads/mes.",
   },
   {
     slug: "proposal-automation",
     tag: "Sistema B",
     title: "Proposal Automation System",
-    tagline: "Propuestas en minutos, no en dias.",
+    tagline: "Propuestas en minutos, no en días.",
     problem:
-      "Crear propuestas a mano es lento, inconsistente y hace que pierdas momentum con el cliente. Para cuando la envias, ya esta frio o ya eligio a la competencia.",
+      "Crear propuestas a mano es lento, inconsistente y hace que pierdas momentum con el cliente. Para cuando la envías, ya está frío o ya eligió a la competencia.",
     deliverables: [
       "Formulario interno de intake post-llamada",
-      "Propuesta web dinamica generada automaticamente",
+      "Propuesta web dinámica generada automáticamente",
       "PDF descargable con branding profesional",
-      "Automatizacion de envio con seguimiento integrado",
+      "Automatización de envío con seguimiento integrado",
       "Pipeline de estado de propuesta en GHL",
-      "Recordatorios automaticos si no hay respuesta",
+      "Recordatorios automáticos si no hay respuesta",
     ],
     benefits: [
       "Propuesta lista en menos de 10 minutos",
-      "Imagen profesional consistente en cada envio",
-      "Seguimiento automatico sin perseguir al cliente",
-      "Mides exactamente cuantas propuestas se convierten",
+      "Imagen profesional consistente en cada envío",
+      "Seguimiento automático sin perseguir al cliente",
+      "Mides exactamente cuántas propuestas se convierten",
     ],
-    forWho: "Agencias, freelances, empresas de servicios. Cualquiera que envie mas de 5 propuestas al mes.",
+    forWho: "Agencias, freelances, empresas de servicios. Cualquiera que envíe más de 5 propuestas al mes.",
   },
   {
     slug: "whatsapp-crm-automation",
     tag: "Sistema C",
     title: "WhatsApp + CRM Automation",
-    tagline: "Seguimiento automatico que no suena a robot.",
+    tagline: "Seguimiento automático que no suena a robot.",
     problem:
       "WhatsApp es tu canal principal pero es un caos: mensajes sin respuesta, sin historial, sin sistema. Leads que llegan y nadie atiende, o que se atienden de forma inconsistente.",
     deliverables: [
-      "Agente automatico de WhatsApp integrado con GHL",
-      "Flujo de bienvenida y precualificacion",
+      "Agente automático de WhatsApp integrado con GHL",
+      "Flujo de bienvenida y precualificación",
       "Secuencias de nurturing por WhatsApp y email",
       "Notificaciones al equipo por leads calificados",
-      "Historial completo de conversacion en CRM",
-      "Reportes de conversion por canal",
+      "Historial completo de conversación en CRM",
+      "Reportes de conversión por canal",
     ],
     benefits: [
       "Respuesta inmediata 24/7 sin depender de una persona",
       "Leads cualificados antes de que hables con ellos",
       "Historial de cada lead en un solo lugar",
-      "Nunca mas un lead sin seguimiento",
+      "Nunca más un lead sin seguimiento",
     ],
-    forWho: "Clinicas, formacion, eventos, retail premium. Negocios donde WhatsApp es canal principal de captacion.",
+    forWho: "Clínicas, formación, eventos, retail premium. Negocios donde WhatsApp es canal principal de captación.",
   },
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Servicios de Automatización Comercial — Ramiro Perez",
+  itemListElement: services.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Service",
+      "@id": `https://ramiroperez.com/servicios#${s.slug}`,
+      name: s.title,
+      description: s.tagline,
+      provider: { "@id": "https://ramiroperez.com/#person" },
+      areaServed: { "@type": "Country", name: "España" },
+      serviceType: "Automatización comercial",
+    },
+  })),
+};
 
 export default function ServiciosPage() {
   return (
     <div className="pt-32 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <span className="inline-block text-xs font-mono text-accent border border-accent/30 rounded px-2 py-0.5 mb-6">
           Servicios
@@ -112,7 +141,7 @@ export default function ServiciosPage() {
                   <p className="text-sm text-foreground-muted leading-relaxed">{s.problem}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted uppercase tracking-wider mb-3">Para quien</p>
+                  <p className="text-xs text-muted uppercase tracking-wider mb-3">Para quién</p>
                   <p className="text-sm text-foreground-muted leading-relaxed">{s.forWho}</p>
                 </div>
               </div>
@@ -143,7 +172,7 @@ export default function ServiciosPage() {
               </div>
 
               <Link href="/diagnostico" className="btn-primary">
-                Solicita tu diagnostico →
+                Solicita tu diagnóstico →
               </Link>
             </div>
           ))}

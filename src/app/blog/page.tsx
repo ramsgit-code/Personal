@@ -4,9 +4,15 @@ import path from "path";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog — Automatizacion y captacion de leads",
+  title: "Blog — Automatización Comercial y Captación de Leads",
   description:
-    "Guias practicas sobre automatizacion comercial, CRM, WhatsApp y sistemas de captacion. Sin teoria: solo lo que funciona.",
+    "Guías prácticas sobre automatización comercial, Go High Level, WhatsApp y sistemas de captación de leads. Sin teoría: solo lo que ya está implementado.",
+  alternates: { canonical: "https://ramiroperez.com/blog" },
+  openGraph: {
+    title: "Blog — Automatización Comercial y Captación de Leads",
+    description:
+      "Guías prácticas sobre Go High Level, WhatsApp automation y lead qualification. Casos reales, no teoría.",
+  },
 };
 
 interface PostMeta {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { LogoHospitalCapilar } from "@/components/logos/LogoHospitalCapilar";
 import { LogoEventosBarcelona } from "@/components/logos/LogoEventosBarcelona";
@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section className="min-h-screen flex items-center pt-16">
       <div className="section w-full">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -36,10 +36,10 @@ export function Hero() {
               Ver casos reales
             </Link>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Social proof logos */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
@@ -53,7 +53,7 @@ export function Hero() {
             <LogoEventosBarcelona className="h-7 w-auto text-foreground opacity-40 hover:opacity-70 transition-opacity" />
             <LogoHermetic className="h-5 w-auto text-foreground opacity-40 hover:opacity-70 transition-opacity" />
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -2,9 +2,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Soluciones por sector",
+  title: "Soluciones por Sector — Automatización Comercial",
   description:
-    "Sistemas de automatizacion especificos para clinicas, empresas de eventos, academias y servicios profesionales.",
+    "Sistemas de automatización específicos para clínicas, empresas de eventos, academias y servicios profesionales. El mismo sistema adaptado al ciclo de venta de tu sector.",
+  alternates: { canonical: "https://ramiroperez.com/soluciones" },
+  openGraph: {
+    title: "Soluciones por Sector — Automatización Comercial con Go High Level",
+    description:
+      "Automatización para clínicas, eventos, formación y consultoras. Casos reales con resultados medibles en cada vertical.",
+  },
 };
 
 const verticals = [

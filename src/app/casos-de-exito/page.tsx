@@ -2,9 +2,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Casos reales",
+  title: "Casos Reales — Automatización Comercial Implementada",
   description:
-    "Sistemas de captacion y automatizacion implementados en negocios reales. Sin humo, sin mockups.",
+    "Sistemas de captación y automatización implementados en clínicas, empresas de eventos y academias. Resultados medibles: −40% tiempo en llamadas, propuestas en 8 minutos, 0 leads sin respuesta.",
+  alternates: { canonical: "https://ramiroperez.com/casos-de-exito" },
+  openGraph: {
+    title: "Casos Reales — Resultados de Automatización Comercial",
+    description:
+      "Hospital Capilar, Eventos Barcelona y más. Resultados concretos con sistemas de lead qualification, proposal automation y WhatsApp + CRM.",
+  },
 };
 
 const cases = [
