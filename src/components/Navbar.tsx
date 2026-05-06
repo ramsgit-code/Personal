@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { LogoBrand } from "@/components/logos/LogoBrand";
 
 const links = [
   { href: "/servicios", label: "Servicios" },
@@ -20,8 +21,11 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-semibold text-foreground tracking-tight hover:opacity-80 transition-opacity">
-          Ramiro Perez<span className="text-accent">.</span>
+        <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+          <LogoBrand className="h-6 w-6 shrink-0" />
+          <span className="font-semibold text-foreground tracking-tight">
+            Ramiro Perez<span className="text-accent">.</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}

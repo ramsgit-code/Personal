@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoBrand } from "@/components/logos/LogoBrand";
 
 const BASE_URL = "https://ramiroperez.com";
 
@@ -10,8 +11,11 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand */}
         <div className="md:col-span-2">
-          <Link href="/" className="font-semibold text-foreground tracking-tight hover:opacity-80 transition-opacity">
-            Ramiro Perez<span className="text-accent">.</span>
+          <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity w-fit">
+            <LogoBrand className="h-6 w-6 shrink-0" />
+            <span className="font-semibold text-foreground tracking-tight">
+              Ramiro Perez<span className="text-accent">.</span>
+            </span>
           </Link>
           <p className="text-sm text-foreground-muted max-w-xs mt-3 leading-relaxed">
             Sistemas de captación, cualificación y cierre para negocios que quieren vender con orden.

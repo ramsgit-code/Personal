@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle, Loader2 } from "lucide-react";
 import Link from "next/link";
 
@@ -139,7 +139,7 @@ export function DiagnosticForm() {
 
   if (submitted) {
     return (
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="text-center py-12"
@@ -163,7 +163,7 @@ export function DiagnosticForm() {
         <p className="text-xs text-muted mt-4">
           O espera mi email. Revisare tu solicitud hoy mismo.
         </p>
-      </motion.div>
+      </m.div>
     );
   }
 
@@ -178,7 +178,7 @@ export function DiagnosticForm() {
           <span className="text-xs text-muted">{Math.round((step / TOTAL_STEPS) * 100)}%</span>
         </div>
         <div className="h-1 bg-border rounded-full">
-          <motion.div
+          <m.div
             className="h-1 bg-accent rounded-full"
             animate={{ width: `${(step / TOTAL_STEPS) * 100}%` }}
             transition={{ duration: 0.3 }}
@@ -188,7 +188,7 @@ export function DiagnosticForm() {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <AnimatePresence mode="wait">
-          <motion.div
+          <m.div
             key={step}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -377,7 +377,7 @@ export function DiagnosticForm() {
                 </Field>
               </>
             )}
-          </motion.div>
+          </m.div>
         </AnimatePresence>
 
         {/* Navigation */}
