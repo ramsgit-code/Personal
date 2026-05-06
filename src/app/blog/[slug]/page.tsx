@@ -41,6 +41,18 @@ function renderInline(text: string): React.ReactNode[] {
   return parts;
 }
 
+export async function generateStaticParams() {
+  const blogDir = path.join(process.cwd(), "src", "content", "blog");
+  try {
+    const files = await fs.readdir(blogDir);
+    return files
+      .filter((f) => f.endsWith(".mdx"))
+      .map((f) => ({ slug: f.replace(".mdx", "") }));
+  } catch {
+    return [];
+  }
+}
+
 export async function generateMetadata({
   params,
 }: {

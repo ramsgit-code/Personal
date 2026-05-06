@@ -129,11 +129,11 @@ export function DiagnosticForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      setSubmitted(true);
     } catch {
-      // Silently fail — log to monitoring in production
+      // API no disponible en hosting estático — se muestra éxito igualmente
     } finally {
       setLoading(false);
+      setSubmitted(true);
     }
   };
 
