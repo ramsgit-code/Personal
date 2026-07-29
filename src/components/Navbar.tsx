@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight, Languages } from "lucide-react";
@@ -34,10 +35,12 @@ export function Navbar() {
         }`}
       >
         <Link href="/" className="flex items-center" aria-label="Rianex">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/logos/rianex-mark.png"
             alt="Rianex"
+            width={1145}
+            height={253}
+            priority
             className="h-[18px] w-auto sm:h-5"
           />
         </Link>

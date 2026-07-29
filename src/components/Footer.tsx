@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
@@ -21,8 +22,13 @@ export function Footer() {
           <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-[26rem] -translate-x-1/2 rounded-full bg-accent/12 blur-[100px]" />
           <div className="relative">
             <div className="flex justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/rianex-mark.png" alt="Rianex" className="h-7 w-auto" />
+              <Image
+                src="/logos/rianex-mark.png"
+                alt="Rianex"
+                width={1145}
+                height={253}
+                className="h-7 w-auto"
+              />
             </div>
             <p className="mx-auto mt-2 max-w-sm text-sm text-foreground-muted">
               {c.footer.tagline}

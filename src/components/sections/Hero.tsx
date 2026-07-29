@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
@@ -18,16 +19,41 @@ const clientLogos: {
   src: string;
   alt: string;
   h: string;
+  w: number;
+  height: number;
   href?: string;
   label?: string;
 }[] = [
-  { src: LOGOS.hospitalCapilar, alt: "Hospital Capilar", h: "h-6 sm:h-9", href: "https://hospitalcapilar.com" },
-  { src: LOGOS.eventosBarcelona, alt: "EB Eventos Barcelona", h: "h-6 sm:h-9", href: "https://www.eventosbarcelona.com" },
-  { src: LOGOS.growth4u, alt: "Growth4U", h: "h-3.5 sm:h-5", href: "https://growth4u.io" },
+  {
+    src: LOGOS.hospitalCapilar,
+    alt: "Hospital Capilar",
+    h: "h-6 sm:h-9",
+    w: 396,
+    height: 117,
+    href: "https://hospitalcapilar.com",
+  },
+  {
+    src: LOGOS.eventosBarcelona,
+    alt: "EB Eventos Barcelona",
+    h: "h-6 sm:h-9",
+    w: 435,
+    height: 117,
+    href: "https://www.eventosbarcelona.com",
+  },
+  {
+    src: LOGOS.growth4u,
+    alt: "Growth4U",
+    h: "h-3.5 sm:h-5",
+    w: 339,
+    height: 64,
+    href: "https://growth4u.io",
+  },
   {
     src: LOGOS.tribeca,
     alt: "Tribeca Media",
     h: "h-8 sm:h-11",
+    w: 800,
+    height: 800,
     href: "https://www.tribecamedia.com",
     label: "Tribeca Media",
   },
@@ -117,12 +143,12 @@ export function Hero() {
                 {clientLogos.map((logo) => {
                   const inner = (
                     <span className="flex flex-col items-center gap-1.5">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={logo.src}
                         alt={logo.alt}
+                        width={logo.w}
+                        height={logo.height}
                         className={`${logo.h} w-auto object-contain opacity-60 transition-opacity duration-300 group-hover:opacity-100`}
-                        loading="lazy"
                       />
                       {logo.label && (
                         <span className="text-[10px] uppercase tracking-wider text-muted transition-colors group-hover:text-foreground-muted">

@@ -1,8 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
+
+const LOGO_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  "/logos/hospital-capilar.png": { width: 396, height: 117 },
+  "/logos/eventos-barcelona.png": { width: 435, height: 117 },
+  "/logos/growth4u.png": { width: 339, height: 64 },
+  "/logos/tribeca.png": { width: 800, height: 800 },
+};
 
 export function CasosView() {
   const { c, lang } = useLang();
@@ -22,10 +30,11 @@ export function CasosView() {
       {/* construido sobre Go High Level */}
       <Reveal>
         <div className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-md">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/logos/gohighlevel-icon.png"
             alt="Go High Level"
+            width={32}
+            height={32}
             className="h-5 w-5 rounded"
           />
           <span className="text-sm text-foreground-muted">
@@ -36,18 +45,20 @@ export function CasosView() {
       </Reveal>
 
       <div className="flex flex-col gap-6">
-        {c.cases.items.map((item, i) => (
+        {c.cases.items.map((item, i) => {
+          const dim = LOGO_DIMENSIONS[item.logo] ?? { width: 300, height: 90 };
+          return (
           <Reveal key={item.client} delay={i * 0.06}>
             <article className="card grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center md:gap-10">
               {/* contenido del caso */}
               <div>
                 <div className="flex flex-wrap items-center gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={item.logo}
                     alt={item.client}
+                    width={dim.width}
+                    height={dim.height}
                     className="h-7 w-auto max-w-[150px] object-contain opacity-90"
-                    loading="lazy"
                   />
                   <span className="text-xs text-muted">{item.sector}</span>
                 </div>
@@ -107,7 +118,8 @@ export function CasosView() {
               </div>
             </article>
           </Reveal>
-        ))}
+          );
+        })}
       </div>
     </PageShell>
   );
