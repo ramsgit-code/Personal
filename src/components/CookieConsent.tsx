@@ -5,17 +5,19 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/components/LanguageProvider";
 
-const STORAGE_KEY = "rianex-cookie-consent";
+export const COOKIE_CONSENT_KEY = "rianex-cookie-consent";
+export const COOKIE_CONSENT_EVENT = "rianex:cookie-consent";
+const STORAGE_KEY = COOKIE_CONSENT_KEY;
 
 const copy = {
   es: {
-    text: "Usamos cookies técnicas y analíticas propias para mejorar tu experiencia.",
+    text: "Usamos cookies técnicas propias. Si aceptas, también activamos el chat de atención (GoHighLevel), que instala sus propias cookies de terceros.",
     link: "Más info",
     accept: "Aceptar",
     reject: "Rechazar",
   },
   en: {
-    text: "We use technical and first-party analytics cookies to improve your experience.",
+    text: "We use first-party technical cookies. If you accept, we also enable our support chat (GoHighLevel), which sets its own third-party cookies.",
     link: "Learn more",
     accept: "Accept",
     reject: "Reject",
@@ -41,6 +43,7 @@ export function CookieConsent() {
     } catch {
       /* noop */
     }
+    window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_EVENT, { detail: value }));
     setVisible(false);
   };
 

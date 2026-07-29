@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "Información sobre el uso de cookies y tecnologías similares en el sitio web de Rianex.",
   robots: { index: true, follow: true },
+  alternates: { canonical: "/cookies" },
 };
 
 const EMAIL = "ramiroperez12@hotmail.com";

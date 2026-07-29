@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Nosotros",
   description:
     "Grupo de ingenieros industriales con experiencia en plantas industriales y automatización con IA. Sistemas de IA de extremo a extremo sobre Go High Level.",
+  alternates: { canonical: "/sobre-mi" },
 };
 
 export default function SobreMiPage() {

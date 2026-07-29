@@ -40,6 +40,7 @@ export function Navbar() {
             alt="Rianex"
             width={1145}
             height={253}
+            sizes="120px"
             priority
             className="h-[18px] w-auto sm:h-5"
           />

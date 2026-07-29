@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Testimonios",
   description:
     "Opiniones reales de clientes con sistemas de automatización comercial en Go High Level.",
+  alternates: { canonical: "/testimonios" },
 };
 
 export const revalidate = 60;

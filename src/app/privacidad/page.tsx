@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "Información sobre el tratamiento de datos personales en Rianex conforme al RGPD y la LOPDGDD.",
   robots: { index: true, follow: true },
+  alternates: { canonical: "/privacidad" },
 };
 
 const EMAIL = "ramiroperez12@hotmail.com";

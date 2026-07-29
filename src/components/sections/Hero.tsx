@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -63,6 +63,17 @@ export function Hero() {
   const { c } = useLang();
   const h = c.hero;
   const spotRef = useRef<HTMLDivElement>(null);
+
+  // el objeto 3D solo se ve en escritorio (ver clase "hidden md:flex" abajo);
+  // con este check evitamos que móvil descargue three.js para nada.
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const onMove = (e: React.MouseEvent<HTMLElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -128,7 +139,7 @@ export function Hero() {
             {/* objeto 3D interactivo (solo escritorio, para mantener el móvil ligero) */}
             <Reveal delay={0.12} className="hidden md:flex md:justify-center">
               <div className="relative h-[380px] w-[380px] lg:h-[460px] lg:w-[460px]">
-                <Hero3D />
+                {isDesktop && <Hero3D />}
               </div>
             </Reveal>
           </div>

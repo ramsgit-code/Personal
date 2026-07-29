@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Casos de éxito",
   description:
     "Casos de éxito de sistemas de IA implementados en negocios, sobre Go High Level: reto, solución y resultado.",
+  alternates: { canonical: "/casos-de-exito" },
 };
 
 export default function CasosPage() {

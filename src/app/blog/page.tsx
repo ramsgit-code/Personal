@@ -5,6 +5,7 @@ import { BlogView } from "./BlogView";
 export const metadata: Metadata = {
   title: "Blog",
   description: "Guías sobre automatización comercial y Go High Level.",
+  alternates: { canonical: "/blog" },
 };
 
 export const revalidate = 60;
