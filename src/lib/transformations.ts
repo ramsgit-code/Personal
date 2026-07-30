@@ -1,7 +1,7 @@
 /**
  * CONFIGURACION DE VIDEOS ANTES / DESPUES
  * ---------------------------------------
- * 1. Genera los videos con IA (ver guia en respuesta del agente o VIDEOS-IA.txt en /public/videos)
+ * 1. Genera los videos con IA (ver guia en docs/VIDEOS-IA.txt y docs/KLING-PROMPTS.md)
  * 2. Exporta MP4 (H.264), max 1080p, 15-45 seg, < 15 MB si es posible
  * 3. Coloca archivos en: public/videos/{id}-antes.mp4 y public/videos/{id}-despues.mp4
  * 4. Opcional: poster JPG en public/videos/{id}-antes.jpg
